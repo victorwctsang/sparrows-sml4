@@ -199,3 +199,21 @@ body {
 .instagram-icon:hover {
     transform: scale(1.2);
 }
+
+/* Volleyball bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.volleyball-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.volleyball-bounce > div {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}

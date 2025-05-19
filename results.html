@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparrow's SML Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <div class="monster-header p-6 flex flex-col items-center">
+                <div class="monster-eye mb-2">
+                    <div class="monster-pupil">
+                        <div class="volleyball-pattern"></div>
+                        <div class="volleyball-line"></div>
+                        <div class="volleyball-line-vertical"></div>
+                    </div>
+                </div>
+                <div class="monster-mouth">
+                    <div class="monster-teeth">
+                        <div class="monster-tooth"></div>
+                        <div class="monster-tooth"></div>
+                        <div class="monster-tooth"></div>
+                        <div class="monster-tooth"></div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="text-4xl font-bold text-center text-green-800 mt-4">SML Season 4 Live Results</h1>
+            <p class="text-center text-gray-600 mt-2 mb-4">Live results from the <a href="https://sparrowsvolleyball.com.au/sml-season-4-winter-25" target="_blank" class="text-green-600 hover:text-green-700 underline">official Sparrows Volleyball SML Season 4</a>.</p>
+            <p class="text-center text-gray-600 mt-2 flex items-center justify-center">
+                by Spike Wazowski
+                <a href="https://www.instagram.com/spikewazowski_vb/" target="_blank" class="ml-2" title="Follow Spike Wazowski on Instagram">
+                    <svg class="w-5 h-5 instagram-icon text-pink-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+                        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                    </svg>
+                </a>
+            </p>
+        </header>
+
+        <div class="flex justify-center mb-6">
+            <a href="index.html" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition">View Schedule</a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-4 relative">
+            <div id="loading-spinner" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-10">
+                <div class="volleyball-bounce">
+                    <div class="w-16 h-16 bg-white rounded-full border-4 border-green-600 relative">
+                        <div class="absolute inset-0 rounded-full border-2 border-green-600 opacity-50"></div>
+                        <div class="absolute inset-0 rounded-full border-2 border-green-600 opacity-50 transform rotate-45"></div>
+                        <div class="absolute inset-0 rounded-full border-2 border-green-600 opacity-50 transform -rotate-45"></div>
+                    </div>
+                </div>
+            </div>
+            <iframe
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTga3n1OyQpIdKMYzJ5bnUqg2iuYLaQ4pLYdgwgbkXex8_aG7cPZLHs_XfKMn8-k_kuG6o4kXWf89Z0/pubhtml?gid=817422228"
+                class="w-full h-[800px] border-0"
+                title="SML Season 4 Results"
+                loading="lazy"
+                onload="document.getElementById('loading-spinner').style.display = 'none';">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        // Add eye animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const pupil = document.querySelector('.monster-pupil');
+            const eye = document.querySelector('.monster-eye');
+
+            document.addEventListener('mousemove', (e) => {
+                const eyeRect = eye.getBoundingClientRect();
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+                const dx = e.clientX - eyeCenterX;
+                const dy = e.clientY - eyeCenterY;
+
+                const maxMove = 15;
+                const angle = Math.atan2(dy, dx);
+                const distance = Math.min(Math.sqrt(dx * dx + dy * dy) / 10, maxMove);
+
+                const moveX = Math.cos(angle) * distance;
+                const moveY = Math.sin(angle) * distance;
+
+                pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
