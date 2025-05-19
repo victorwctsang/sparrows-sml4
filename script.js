@@ -449,7 +449,7 @@ function renderSchedule(data) {
                 <div class="bg-green-600 text-white px-4 py-3 flex justify-between items-center">
                     <div>
                         <h3 class="font-semibold">${match.competition} - Week ${match.week}</h3>
-                        <p class="text-sm text-green-100">${match.time} - Division ${match.division}</p>
+                        <p class="text-sm text-green-100">${formatDate(match.startDate)} ${match.time} - Division ${match.division}</p>
                     </div>
                     ${courtIcon}
                 </div>
@@ -523,6 +523,7 @@ function renderSchedule(data) {
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div class="md:col-span-1">
                                             <div class="text-xs font-medium uppercase tracking-wider">Competition: ${match.competition} (${match.division})</div>
+                                            <div class="text-xs font-medium uppercase tracking-wider">Date: ${formatDate(match.startDate)}</div>
                                             <div class="text-xs font-medium uppercase tracking-wider">Time: ${match.time}</div>
                                             <div class="text-xs font-medium uppercase tracking-wider">Court: ${match.court}</div>
                                         </div>
@@ -570,4 +571,26 @@ function convertTo24Hour(timeStr) {
     }
 
     return `${hours}:${minutes}`;
+}
+
+// Helper function to format date from ISO string
+function formatDate(isoString) {
+    if (!isoString) return '';
+
+    // Parse the YYYYMMDDTHHMMSS format
+    const year = isoString.substring(0, 4);
+    const month = isoString.substring(4, 6);
+    const day = isoString.substring(6, 8);
+    const hours = isoString.substring(9, 11);
+    const minutes = isoString.substring(11, 13);
+    const seconds = isoString.substring(13, 15);
+
+    // Create date object with the parsed components
+    const date = new Date(`${year}-${month}-${day}T${hours}:${minutes}:${seconds}`);
+
+    return date.toLocaleDateString('en-US', {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short'
+    });
 }
