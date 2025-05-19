@@ -1,0 +1,201 @@
+:root {
+    --monster-green: #7DCEA0;
+    --monster-teal: #45B39D;
+    --monster-blue: #3498DB;
+    --monster-purple: #9B59B6;
+    --monster-dark: #1E3A29;
+    --monster-light: #E8F8F5;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--monster-light);
+    background-image: radial-gradient(var(--monster-green) 0.5px, transparent 0.5px), radial-gradient(var(--monster-green) 0.5px, var(--monster-light) 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+.schedule-card {
+    transition: all 0.3s ease;
+    border: 2px solid var(--monster-teal);
+}
+
+.schedule-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.team-pill {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-playing {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+}
+
+.team-duty {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+}
+
+.team-highlighted {
+    background-color: var(--monster-teal);
+    color: white;
+    border: 1px solid var(--monster-dark);
+}
+
+.filter-active {
+    background-color: var(--monster-teal);
+    color: white;
+}
+
+.filter-inactive {
+    background-color: #e2e8f0;
+    color: var(--monster-dark);
+}
+
+.checkbox-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: white;
+}
+
+.checkbox-item {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item:hover {
+    background-color: #f3f4f6;
+}
+
+.checkbox-item input {
+    margin-right: 8px;
+}
+
+.monster-header {
+    background-color: var(--monster-teal);
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.monster-eye {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+    border: 3px solid var(--monster-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.monster-pupil {
+    width: 40px;
+    height: 40px;
+    background-color: var(--monster-dark);
+    border-radius: 50%;
+    position: relative;
+}
+
+.volleyball-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.volleyball-line {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.volleyball-line-vertical {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.monster-mouth {
+    width: 120px;
+    height: 60px;
+    background-color: #E74C3C;
+    border-radius: 0 0 60px 60px;
+    margin: 10px auto 0;
+    border: 3px solid var(--monster-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.monster-teeth {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5px;
+}
+
+.monster-tooth {
+    width: 15px;
+    height: 20px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+/* Collapsible filter section */
+.filter-section {
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.filter-section.collapsed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-width: 0;
+}
+
+.filter-section.expanded {
+    max-height: 500px;
+    padding: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.toggle-filters-btn {
+    transition: transform 0.3s ease;
+}
+
+.toggle-filters-btn.rotated {
+    transform: rotate(180deg);
+}
+
+/* Instagram icon animation */
+.instagram-icon {
+    transition: transform 0.3s ease;
+}
+
+.instagram-icon:hover {
+    transform: scale(1.2);
+}

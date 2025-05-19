@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparrow's Saturday Comp Schedule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <div class="monster-header p-6 flex flex-col items-center">
+                <div class="monster-eye mb-2">
+                    <div class="monster-pupil">
+                        <div class="volleyball-pattern"></div>
+                        <div class="volleyball-line"></div>
+                        <div class="volleyball-line-vertical"></div>
+                    </div>
+                </div>
+                <div class="monster-mouth">
+                    <div class="monster-teeth">
+                        <div class="monster-tooth"></div>
+                        <div class="monster-tooth"></div>
+                        <div class="monster-tooth"></div>
+                        <div class="monster-tooth"></div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="text-4xl font-bold text-center text-green-800 mt-4">Sparrow's Saturday Comp Schedule</h1>
+            <p class="text-center text-gray-600 mt-2 flex items-center justify-center">
+                by Spike Wazowski
+                <a href="https://www.instagram.com/spikewazowski_vb/" target="_blank" class="ml-2" title="Follow Spike Wazowski on Instagram">
+                    <svg class="w-5 h-5 instagram-icon text-pink-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+                        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                    </svg>
+                </a>
+            </p>
+        </header>
+
+        <div class="bg-white rounded-lg shadow-lg mb-8 border-4 border-green-500 overflow-hidden">
+            <!-- Filter toggle button -->
+            <div class="bg-green-600 text-white px-6 py-3 flex justify-between items-center cursor-pointer" id="filter-toggle">
+                <h2 class="text-xl font-semibold">Filter Matches</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 toggle-filters-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+
+            <!-- Collapsible filter content -->
+            <div class="filter-section expanded border-t border-gray-200" id="filter-content">
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Teams</label>
+                            <div class="relative">
+                                <button id="team-dropdown-btn" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white text-left flex justify-between items-center">
+                                    <span id="selected-teams-text">Spike Wazowski</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <div id="team-dropdown" class="absolute z-10 w-full mt-1 checkbox-container hidden">
+                                    <div class="p-2 border-b border-gray-200">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="select-all-teams"> Select All
+                                        </label>
+                                    </div>
+                                    <div id="team-options">
+                                        <!-- Team checkboxes will be inserted here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Division</label>
+                            <select id="division-filter" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option value="">All Divisions</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Competition</label>
+                            <select id="competition-filter" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option value="">All Competitions</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Week</label>
+                            <select id="week-filter" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option value="">All Weeks</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button id="reset-filters" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition">Reset Filters</button>
+                    </div>
+
+                    <div class="mt-4">
+                        <p id="matches-count" class="text-sm text-gray-600"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center mb-4">
+            <button id="toggle-view" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition">Toggle View: Compact</button>
+        </div>
+
+        <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Schedule cards will be inserted here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
