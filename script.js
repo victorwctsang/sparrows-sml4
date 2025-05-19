@@ -448,8 +448,8 @@ function renderSchedule(data) {
             card.innerHTML = `
                 <div class="bg-green-600 text-white px-4 py-3 flex justify-between items-center">
                     <div>
-                        <h3 class="font-semibold">${match.competition} - Week ${match.week}</h3>
-                        <p class="text-sm text-green-100">${formatDate(match.startDate)} ${match.time} - Division ${match.division}</p>
+                        <h3 class="font-semibold">${match.competition} - Week ${match.week} (${formatDate(match.startDate)})</h3>
+                        <p class="text-sm text-green-100">${match.time} - Division ${match.division}</p>
                     </div>
                     ${courtIcon}
                 </div>
@@ -493,7 +493,7 @@ function renderSchedule(data) {
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
                     </svg>
-                    Week ${week}
+                    Week ${week} (${formatDate(weekGroups[week][0].startDate)})
                 </h3>
             `;
             weekCard.appendChild(weekHeader);
@@ -523,7 +523,6 @@ function renderSchedule(data) {
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div class="md:col-span-1">
                                             <div class="text-xs font-medium uppercase tracking-wider">Competition: ${match.competition} (${match.division})</div>
-                                            <div class="text-xs font-medium uppercase tracking-wider">Date: ${formatDate(match.startDate)}</div>
                                             <div class="text-xs font-medium uppercase tracking-wider">Time: ${match.time}</div>
                                             <div class="text-xs font-medium uppercase tracking-wider">Court: ${match.court}</div>
                                         </div>
