@@ -53,6 +53,11 @@ async function loadScheduleData() {
                 };
             });
 
+        // Debug logging
+        const allWeeks = [...new Set(processedData.map(item => item.week))].sort((a, b) => a - b);
+        console.log('All weeks in data:', allWeeks);
+        console.log('Total matches processed:', processedData.length);
+
         filteredData = [...processedData];
 
         // Initialize the UI after data is loaded
@@ -284,6 +289,13 @@ function applyFilters() {
 
         return teamMatches && divisionMatches && competitionMatches && weekMatches;
     });
+
+    // Debug logging
+    const filteredWeeks = [...new Set(filteredData.map(item => item.week))].sort((a, b) => a - b);
+    console.log('Selected teams:', selectedTeams);
+    console.log('Applied filters - Division:', divisionFilter, 'Competition:', competitionFilter, 'Week:', weekFilter);
+    console.log('Filtered weeks:', filteredWeeks);
+    console.log('Filtered matches count:', filteredData.length);
 
     renderSchedule(filteredData);
     updateMatchesCount();
